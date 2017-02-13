@@ -1,10 +1,40 @@
+from __future__ import unicode_literals
 
-from south.db import db
-from django.db import models
+from django.conf import settings
+from django.db import migrations, models
+import django.db.models.deletion
+
 from database_files.models import *
 
-class Migration:
+class Migration(migrations.Migration):
+    initial = True
     
+    dependencies = [
+    ]
+    
+    operations = [
+        migrations.CreateModel(
+            name="File",
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True,serialise=False,verbose_name="FILE")),
+                ('content', models.TextField()),
+                ('size', models.IntegerField()),
+                objects
+            ]
+        )
+    ]
+    
+    
+    
+    '''
+    content = models.TextField()
+    size = models.IntegerField()
+    
+    objects = FileManager()
+    '''
+    
+    
+    '''
     def forwards(self, orm):
         
         # Adding model 'File'
@@ -33,3 +63,4 @@ class Migration:
     }
     
     complete_apps = ['database_files']
+'''
